@@ -20,7 +20,7 @@ export class AuthService {
   login() {
     this.session.token = 'jwt-token-here';
     console.log('Login!');
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 
   logout() {
