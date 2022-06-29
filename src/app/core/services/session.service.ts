@@ -14,4 +14,12 @@ export class SessionService {
   get token(): string | null {
     return localStorage.getItem('token');
   }
+
+  set refresh(token: string | null) {
+    localStorage.setItem('refresh', token ? token : '');
+  }
+
+  get refresh(): string | null {
+    return localStorage.getItem('refresh');
+  }
 }

@@ -16,10 +16,15 @@ const routes: Routes = [
     children: [
       {
         canActivate: [AuthGuard],
-        path: '',
+        path: 'home',
         loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule)
       }
     ]
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
   },
   {
     path: '**',

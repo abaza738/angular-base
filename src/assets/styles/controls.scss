@@ -1,0 +1,46 @@
+@import "./variables.scss";
+
+// General controls
+
+a {
+    text-decoration: none;
+    color: $primary;
+
+    &:hover {
+        color: $primary-hover;
+    }
+}
+
+button.btn {
+    color: white;
+    padding: 0.25rem 1.5rem;
+}
+
+button.btn-primary {
+    color: white;
+    background-color: $primary;
+
+    &:hover {
+        background-color: $primary-hover;
+    }
+}
+
+button.btn-secondary {
+    background-color: $secondary;
+
+    &:hover {
+        background-color: $secondary-hover;
+    }
+}
+
+// Material stuff
+
+.mat-form-field {
+    margin: 0;
+    width: 100%;
+
+    .mat-form-field-wrapper {
+        margin: 0 !important;
+        padding: 0;
+    }
+}

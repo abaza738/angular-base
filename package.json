@@ -1,6 +1,9 @@
 {
   "name": "angular-base",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "repository": {
+    "url": "https://github.com/abaza738/angular-base"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -20,6 +23,8 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@auth0/angular-jwt": "^5.0.2",
+    "@ngx-translate/core": "^14.0.0",
     "ngx-toastr": "^14.3.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
