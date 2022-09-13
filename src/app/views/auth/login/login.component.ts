@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
@@ -9,24 +9,18 @@ import { AuthService } from 'src/app/core/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  loginForm: FormGroup = new FormGroup({});
-  username: FormControl = new FormControl('', Validators.required);
-  password: FormControl = new FormControl('', Validators.required);
+  loginForm: FormGroup = new FormGroup({
+    username: new FormControl<string>('', Validators.required),
+    password: new FormControl<string>('', Validators.required)
+  });
 
   constructor(
     private auth: AuthService,
     private toastr: ToastrService,
     private translate: TranslateService
   ) { }
-
-  ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      username: this.username,
-      password: this.password
-    });
-  }
 
   login() {
     this.auth.login(this.loginForm.value).subscribe({
