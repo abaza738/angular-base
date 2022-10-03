@@ -24,7 +24,7 @@ export class LoginComponent {
 
   login() {
     this.auth.login(this.loginForm.value).subscribe({
-      error: (err) => this.toastr.error(this.translate.instant('auth.loginError'), this.translate.instant('general.error'))
+      error: () => this.toastr.error(this.translate.instant('auth.loginError'), this.translate.instant('general.error'))
     });
   }
 

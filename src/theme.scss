@@ -1,0 +1,44 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+@import '@angular/material/theming';
+@import "./assets/styles/controls.scss";
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+$custom-typography: mat-typography-config(
+  $font-family: "Fira Sans",
+  $body-1: mat-typography-level(16px, 18px),
+);
+
+@include mat-core($custom-typography);
+
+$angular-base-primary: mat.define-palette(mat.$light-blue-palette, 500);
+$angular-base-accent: mat.define-palette(
+  mat.$blue-grey-palette,
+  500,
+  A100,
+  A400
+);
+
+$angular-base-warn: mat.define-palette(mat.$red-palette);
+
+$angular-base-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $angular-base-primary,
+      accent: $angular-base-accent,
+      warn: $angular-base-warn,
+    ),
+  )
+);
+
+$angular-base-dark: mat.define-dark-theme(
+  (
+    color: (
+      primary: $angular-base-primary,
+      accent: $angular-base-accent,
+      warn: $angular-base-warn,
+    ),
+  )
+);

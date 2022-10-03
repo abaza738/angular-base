@@ -4,10 +4,9 @@ import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
-
-
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -20,6 +19,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     MaterialModule,
     TranslateModule
+  ],
+  providers: [
   ]
 })
 export class SharedModule { }

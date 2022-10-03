@@ -1,0 +1,40 @@
+<mat-sidenav-container>
+  <mat-sidenav [opened]="true" [mode]="'side'" color="primary">
+    <div class="section top">
+      <span>Logo</span>
+    </div>
+
+    <mat-list class="sectopm">
+
+      <mat-list-item routerLinkActive="active">
+        <a routerLink="home" class="nav-link">
+          <mat-icon>home</mat-icon> <span>Home</span>
+        </a>
+      </mat-list-item>
+
+      <mat-list-item routerLinkActive="active">
+        <a routerLink="about" class="nav-link">
+          <mat-icon>info</mat-icon> <span>About</span>
+        </a>
+      </mat-list-item>
+
+    </mat-list>
+
+    <div class="section bottom">
+      <button mat-button color="" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <div class="separator"></div>
+
+      <button mat-button color="" (click)="changeTheme()">
+        <mat-icon>{{ (theme | async) == 'light' ? 'dark_mode' : 'light_mode' }}</mat-icon>
+      </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

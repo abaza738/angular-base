@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -9,13 +8,9 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private auth: AuthService, private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
-  }
-
-  logout() {
-    this.auth.logout();
   }
 
   showSuccess() {

@@ -8,18 +8,18 @@
 
     <form [formGroup]="loginForm" class="center">
 
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>{{ 'general.username' | translate }}</mat-label>
         <input type="text" matInput formControlName="username">
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>{{ 'general.password' | translate }}</mat-label>
         <input type="password" matInput formControlName="password">
       </mat-form-field>
 
-      <button mat-button class="btn btn-primary" (click)="login()">{{ 'auth.login' | translate }}</button>
-      <button mat-button class="btn btn-secondary">{{ 'auth.signUp' | translate }}</button>
+      <button mat-flat-button color="primary" (click)="login()">{{ 'auth.login' | translate }}</button>
+      <button mat-flat-button type="button" color="accent" [routerLink]="['/auth/register']">{{ 'auth.signUp' | translate }}</button>
 
       <p>{{ 'auth.forgetPasswordText' | translate }} <a href="#">{{ 'auth.resetPassword' | translate }}</a></p>
     </form>

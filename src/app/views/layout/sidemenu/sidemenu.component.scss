@@ -1,0 +1,75 @@
+:host {
+  display: block;
+  height: 100%;
+
+  ::ng-deep {
+    .mat-sidenav-container, .mat-sidenav-content {
+      height: 100%;
+    }
+  }
+}
+
+.separator {
+  flex: 1;
+}
+
+.mat-sidenav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  ::ng-deep .mat-drawer-inner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      padding: 1rem 0;
+
+      &.top {
+        justify-content: flex-start;
+      }
+
+      &.bottom {
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+.mat-list-item {
+
+  ::ng-deep .mat-list-item-content {
+    justify-content: center;
+  }
+
+  .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: unset;
+    opacity: 0.5;
+
+    span {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+  }
+
+  &.active {
+    .nav-link {
+      opacity: 1;
+    }
+  }
+}
+

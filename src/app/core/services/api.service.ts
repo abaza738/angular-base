@@ -1,40 +1,43 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { UrlPipe } from 'src/app/shared/pipes/url.pipe';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private urlPipe: UrlPipe
+  ) { }
 
-  get<T>(url: string, params?: {[key: string]: any}): Observable<T> {
-    return this.http.get<T>(`${environment.apiUrl}${url}`, { params: params }).pipe(
+  get<T = any>(url: string, params?: {[key: string]: any}): Observable<T> {
+    return this.http.get<T>(this.urlPipe.transform(url), { params: params }).pipe(
       catchError(this.handleError<T>(url))
     );
   }
 
-  post<T>(url: string, body?: {[key: string]: any}): Observable<T> {
-    return this.http.post<T>(`${environment.apiUrl}${url}`, body).pipe(
+  post<T = any>(url: string, body?: {[key: string]: any}): Observable<T> {
+    return this.http.post<T>(this.urlPipe.transform(url), body).pipe(
       catchError(this.handleError<T>(url))
     );
   }
 
-  patch<T>(url: string, body: {[key: string]: any}): Observable<T> {
-    return this.http.patch<T>(`${environment.apiUrl}${url}`, body).pipe(
+  patch<T = any>(url: string, body: {[key: string]: any}): Observable<T> {
+    return this.http.patch<T>(this.urlPipe.transform(url), body).pipe(
       catchError(this.handleError<T>(url))
     );
   }
 
-  delete<T>(url: string, params: {[key: string]: any}): Observable<T> {
-    return this.http.delete<T>(`${environment.apiUrl}${url}`, { params: params }).pipe(
+  delete<T = any>(url: string, params: {[key: string]: any}): Observable<T> {
+    return this.http.delete<T>(this.urlPipe.transform(url), { params: params }).pipe(
       catchError(this.handleError<T>(url))
     );
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T = any>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(`${operation} failed with the following error:`);
       console.error(error);

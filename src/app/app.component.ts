@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject, Renderer2 } from '@angular/core';
 import { locale as ar } from 'src/assets/i18n/ar';
 import { locale as en } from 'src/assets/i18n/en';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { SessionService } from './core/services/session.service';
+import { DOCUMENT } from '@angular/common';
 
 export type Locale = {
   lang: string;
@@ -17,7 +19,12 @@ export class AppComponent {
   defaultLanguage: string = localStorage.getItem('lang') || 'en';
   languages: Locale[] = [ar, en];
 
-  constructor(private translate: TranslateService) {
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private renderer: Renderer2,
+    private session: SessionService,
+    private translate: TranslateService
+  ) {
     this.translate.addLangs(this.languages.map(l => l.lang));
 
     this.languages.forEach(lang => {
@@ -35,6 +42,12 @@ export class AppComponent {
         const htmlElement: HTMLElement = document.getElementsByTagName('html')[0];
         htmlElement.setAttribute('lang', language.lang);
         htmlElement.setAttribute('dir', language.lang === 'ar' ? 'rtl' : 'ltr');
+      }
+    });
+
+    this.session.currentTheme.subscribe({
+      next: (theme) => {
+        this.renderer.setAttribute(this.document.body, 'class', `mat-typography ${theme}`);
       }
     });
   }

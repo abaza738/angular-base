@@ -1,1 +1,54 @@
-<p>register works!</p>
+<div class="signUp">
+  <div class="splash center">
+    <div class="overlay"></div>
+    <div>{{ 'auth.signUp' | translate }}</div>
+  </div>
+
+  <div class="form center">
+
+    <form [formGroup]="signUpForm" class="center">
+
+      <mat-form-field>
+        <mat-label>{{ 'general.username' | translate }}</mat-label>
+        <input type="text" matInput formControlName="username">
+      </mat-form-field>
+
+      <div class="same-line">
+        <mat-form-field>
+          <mat-label>{{ 'general.firstName' | translate }}</mat-label>
+          <input type="text" matInput formControlName="firstName">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>{{ 'general.lastName' | translate }}</mat-label>
+          <input type="text" matInput formControlName="lastName">
+        </mat-form-field>
+      </div>
+
+
+      <mat-form-field>
+        <mat-label>{{ 'general.email' | translate }}</mat-label>
+        <input type="text" matInput formControlName="email">
+      </mat-form-field>
+
+      <div class="same-line">
+        <mat-form-field>
+          <mat-label>{{ 'general.password' | translate }}</mat-label>
+          <input type="password" matInput formControlName="password">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>{{ 'auth.confirmPassword' | translate }}</mat-label>
+          <input type="password" matInput formControlName="confirmPassword">
+        </mat-form-field>
+      </div>
+
+
+      <button mat-flat-button color="primary" (click)="register()">{{ 'auth.signUp' | translate }}</button>
+      <button mat-flat-button type="button" color="accent" [routerLink]="['/auth/login']">{{ 'auth.backToLogin' | translate }}</button>
+
+      <p>{{ 'auth.forgetPasswordText' | translate }} <a href="#">{{ 'auth.resetPassword' | translate }}</a></p>
+    </form>
+
+  </div>
+</div>

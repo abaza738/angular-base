@@ -20,13 +20,17 @@ export class AuthService {
   }
 
   login(credentials: { username: string, password: string }) {
-    return this.api.post<any>(`/token`, credentials).pipe(tap(
+    return this.api.post<any>(`/auth/login`, credentials).pipe(tap(
       (response: { access:  string, refresh: string }) => {
         this.session.token = response.access;
         this.session.refresh = response.refresh;
         this.router.navigate(['dashboard']);
       }
     ));
+  }
+
+  register(values: { firstName: string, lastName: string, username: string, password: string, confirmPassword: string}) {
+    return this.api.post(`/auth/register`, values);
   }
 
   logout() {

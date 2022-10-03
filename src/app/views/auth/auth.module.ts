@@ -33,7 +33,7 @@ import { RegisterComponent } from './register/register.component';
       },
       {
         path: '**',
-        component: NotFoundComponent
+        redirectTo: 'login'
       }
     ])
   ]

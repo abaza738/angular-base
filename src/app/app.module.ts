@@ -9,16 +9,20 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { UrlPipe } from './shared/pipes/url.pipe';
+import { LayoutModule } from './views/layout/layout.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UrlPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    LayoutModule,
     ToastrModule.forRoot(),
     JwtModule.forRoot({
       config: {
@@ -30,7 +34,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
     TranslateModule.forRoot()
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    UrlPipe
   ],
   bootstrap: [AppComponent]
 })
