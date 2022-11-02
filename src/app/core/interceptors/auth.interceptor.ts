@@ -11,11 +11,11 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler) {
 
     const expiry = this.jwtService.isTokenExpired();
-    const token = expiry ? localStorage.getItem('refresh') : this.jwtService.tokenGetter();
+    const token = localStorage.getItem('token');
 
     const headersConfig = {
       'Accept': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': token ? `Bearer ${token}` : '',
     };
 
     const authReq = req.clone({

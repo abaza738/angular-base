@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { UrlPipe } from 'src/app/shared/pipes/url.pipe';
 
 @Injectable({
@@ -39,9 +39,7 @@ export class ApiService {
 
   private handleError<T = any>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(`${operation} failed with the following error:`);
-      console.error(error);
-      return of(result as T);
+      return throwError(() => new Error(`${operation} failed with the following error:`));
     };
   }
 }

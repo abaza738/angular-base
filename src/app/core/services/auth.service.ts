@@ -35,7 +35,7 @@ export class AuthService {
 
   logout() {
     this.session.token = '';
-    console.log('Logout');
+    this.session.refresh = '';
     this.router.navigate(['auth']);
   }
 
