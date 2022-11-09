@@ -21,7 +21,7 @@
     </mat-list>
 
     <div class="section bottom">
-      <button mat-button color="" (click)="logout()">
+      <button mat-mini-fab color="" (click)="logout()">
         <mat-icon>logout</mat-icon>
       </button>
     </div>
@@ -31,9 +31,15 @@
     <mat-toolbar>
       <div class="separator"></div>
 
-      <button mat-button color="" (click)="changeTheme()">
-        <mat-icon>{{ (theme | async) == 'light' ? 'dark_mode' : 'light_mode' }}</mat-icon>
-      </button>
+      <div class="row buttons">
+        <button mat-mini-fab color="" (click)="changeLanguage()">
+          {{ (lang | async) === 'en' ? 'AR' : 'EN' }}
+        </button>
+
+        <button mat-mini-fab color="" (click)="changeTheme()">
+          <mat-icon>{{ (theme | async) == 'light' ? 'dark_mode' : 'light_mode' }}</mat-icon>
+        </button>
+      </div>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

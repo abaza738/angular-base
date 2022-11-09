@@ -5,6 +5,7 @@
   ::ng-deep {
     .mat-sidenav-container, .mat-sidenav-content {
       display: flex;
+      flex-direction: column;
       height: 100%;
 
       & > :nth-child(3) {
@@ -74,4 +75,8 @@
     font-size: 0.75rem;
   }
 
+}
+
+.buttons {
+  gap: 1rem;
 }

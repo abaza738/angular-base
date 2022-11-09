@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { SessionService, Theme } from 'src/app/core/services/session.service';
+import { Lang, SessionService, Theme } from 'src/app/core/services/session.service';
 
 @Component({
   selector: 'app-sidemenu',
@@ -10,13 +10,18 @@ import { SessionService, Theme } from 'src/app/core/services/session.service';
 })
 export class SidemenuComponent implements OnInit {
   theme: Observable<Theme> = this.session.currentTheme.asObservable();
+  lang: Observable<Lang> = this.session.currentLang.asObservable();
 
   constructor(
     private auth: AuthService,
-    private session: SessionService
+    private session: SessionService,
   ) { }
 
   ngOnInit(): void {
+  }
+
+  changeLanguage() {
+    this.session.changeLanguage();
   }
 
   changeTheme() {

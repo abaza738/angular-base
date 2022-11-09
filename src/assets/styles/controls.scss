@@ -1,3 +1,4 @@
+@use "@angular/material" as mat;
 @import "./variables.scss";
 
 // General controls
@@ -21,4 +22,11 @@ a {
     margin: 0 !important;
     padding: 0;
   }
+}
+
+button,
+button.mat-button,
+button.mat-flat-button,
+button.mat-mini-fab {
+  box-shadow: none !important;
 }
