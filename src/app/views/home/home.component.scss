@@ -1,0 +1,28 @@
+@import "../../../theme.scss";
+
+.container {
+  flex: 1;
+  padding: 5rem;
+
+  .col {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .row {
+    flex: 1;
+  }
+
+  .grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+  }
+
+  .box {
+    background-color: rgba(map-get($map: $angular-base-primary, $key: 50), 0.15);
+    border-radius: 1rem;
+    animation: skeleton ease-in-out infinite 2s;
+  }
+}

@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
 
+  sixteen: any[] = Array(8);
   constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
