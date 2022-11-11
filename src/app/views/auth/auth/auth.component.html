@@ -1,0 +1,10 @@
+<div class="row buttons">
+  <button mat-mini-fab color="" (click)="changeLanguage()">
+    <b>{{ (lang | async) === 'en' ? 'ع' : 'EN' }}</b>
+  </button>
+
+  <button mat-mini-fab color="" (click)="changeTheme()">
+    <mat-icon>{{ (theme | async) == 'light' ? 'dark_mode' : 'light_mode' }}</mat-icon>
+  </button>
+</div>
+<router-outlet></router-outlet>

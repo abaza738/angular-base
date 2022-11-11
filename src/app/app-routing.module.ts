@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { NoAuthGuard } from './core/guards/no-auth.guard';
-import { NotFoundComponent } from './views/auth/not-found/not-found.component';
 import { SidemenuComponent } from './views/layout/sidemenu/sidemenu.component';
 
 const routes: Routes = [
